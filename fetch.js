@@ -37,8 +37,7 @@ function injectInfo(responseJson){
     document.querySelector('.bio__cell').innerHTML = responseJson.bio;
 
     const avatar = document.createElement('img');
-    avatar.appendChild();
-    
+    avatar.src = responseJson.avatar_url;
 }
 
 
