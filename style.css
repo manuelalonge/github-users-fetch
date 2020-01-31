@@ -9,6 +9,6 @@ body {
 th{
     background-color: yellow;
 }
-td{
+td, th{
     border: 1px solid black;
 }
