@@ -30,7 +30,7 @@ function injectInfo(responseJson) {
 
   //This for cycle inserts a new cell in the row created above
   //I dynamically created the ID property for each cell
-  for (var c = 0; c < 3; c++) {
+  for (var c = 0; c < 4; c++) {
 
     var cell = row.insertCell(c);
     cell.id = `${responseJson.login}_${c}`;
@@ -47,5 +47,15 @@ function injectInfo(responseJson) {
   var src = document.querySelector(`#${responseJson.login}_1`);
   avatar.src = responseJson.avatar_url;
   src.appendChild(avatar);
+
+  //Here I appended the a element to the url variable, in order to resend people to the github page
+  document.querySelector(`#${responseJson.login}_3`).innerHTML = responseJson.html_url;
+  var url = document.createElement('a');
+  var href = document.querySelector(`#${responseJson.login}_3`);
+  url.href = responseJson.html_url;
+  var target = document.querySelector(`#${responseJson.login}_3`);
+  url.target = '_blank';
+  href.appendChild(url);
+  target.appendChild(url);
 
 }
