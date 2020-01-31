@@ -1,4 +1,14 @@
-#myTable tr > td > img {
-    width: 50px;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#myTable tr>td>img {
+    width: 150px;
     height: auto;
+}
+th{
+    background-color: yellow;
+}
+td{
+    border: 1px solid black;
 }
