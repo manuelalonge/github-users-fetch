@@ -30,10 +30,21 @@ function injectInfo(responseJson) {
   for (var c = 0; c < 3; c++) {
 
     var cell = row.insertCell(c);
+    cell.id = `${responseJson.login}_${c}`;
 
-  };
+  }
 
   //How to populate one line
+  document.querySelector(`#${responseJson.login}_0`).innerHTML = responseJson.login;
+  document.querySelector(`#${responseJson.login}_1`).innerHTML = responseJson.avatar_url;
+  document.querySelector(`#${responseJson.login}_2`).innerHTML = responseJson.bio;
+
+  var avatar = document.createElement('img');
+  var src = document.querySelector(`#${responseJson.login}_1`);
+  avatar.src = responseJson.avatar_url;
+  src.appendChild(avatar);
+
+  /*How to populate one line
   document.querySelector('.username__cell').innerHTML = responseJson.login;
   document.querySelector('.avatar__cell').innerHTML = responseJson.avatar_url;
   document.querySelector('.bio__cell').innerHTML = responseJson.bio;
@@ -42,6 +53,6 @@ function injectInfo(responseJson) {
   var src = document.querySelector('.avatar__cell');
   avatar.src = responseJson.avatar_url;
   src.appendChild(avatar);
+  */
 
 }
-
