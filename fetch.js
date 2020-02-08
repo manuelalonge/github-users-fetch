@@ -3,7 +3,7 @@ var users = [];
 
 //The first for cycle populates the array with 2 elements (users)
 //Into this cycle, I created a way to add dinamycally the Github usernames with prompt
-for (var u = 0; u < 2; u++) {
+for (var u = 0; u < 3; u++) {
 
   users.push(prompt('Enter your Github user name'));
 
