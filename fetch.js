@@ -1,9 +1,14 @@
 //Step1 - Make an array of users
 var users = [];
 
+// asking the number of users
+const numberOfUsers = prompt('How many users do you want?', '3');
+// cast to integer the input or default to 1 if errors
+const numberOfUsersInteger = parseInt(numberOfUsers) || 1;
+
 //The first for cycle populates the array with 2 elements (users)
 //Into this cycle, I created a way to add dinamycally the Github usernames with prompt
-for (var u = 0; u < 3; u++) {
+for (var u = 0; u < numberOfUsersInteger; u++) {
 
   users.push(prompt('Enter your Github user name'));
 
