@@ -1,38 +1,34 @@
 //Step 1 - create an array of photos
-var photos = [];
+var users = [];
 
-fetch(`https://picsum.photos/v2/list`).then((response) => {
+// asking the number of users
+const numberOfUsers = prompt('How many users do you want?', '3');
+// cast to integer the input or default to 1 if errors
+const numberOfUsersInteger = parseInt(numberOfUsers) || 1;
 
-  return response.json();
+for (var u = 0; u < numberOfUsersInteger; u++) {
 
-}).then((responseJson) => {
+  users.push(prompt('Enter your Unsplash user name'));
 
-  for (let i = 0; i < responseJson.length; i++) {
-    console.log(responseJson[i]);
-  }
+}
 
-  injectInfo(responseJson);
+for (var user of users) {
+  fetch(`https://source.unsplash.com/user/${user}`).then((response) => {
 
-});
+    return response.json();
+
+  }).then((responseJson) => {
+
+    console.log(responseJson);
+    //injectInfo(responseJson);
+
+  });
+}
+
 
 //Step 2 - add photos from picsum api via javascript
 function injectInfo(responseJson) {
 
-  var table = document.getElementById('myTable');
-  var row = table.insertRow(1);
 
-  for (var c = 0; c < 2; c++) {
-
-    var cell = row.insertCell(c);
-    cell.id = `${responseJson.url}_${c}`;
-
-  }
-
-  document.querySelector(`#${responseJson.url}_0`).innerHTML = responseJson.url;
-  document.querySelector(`#${responseJson.url}_1`).innerHTML = responseJson.download_url;
-  var photo = document.createElement('img');
-  var src = document.querySelector(`#${responseJson.url}_2`);
-  photo.src = responseJson.download_url;
-  src.appendChild(photo);
 
 }
