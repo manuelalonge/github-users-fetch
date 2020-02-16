@@ -1,21 +1,19 @@
 //Step 1 - create an array of photos
 var photos = [];
 
+fetch(`https://picsum.photos/v2/list`).then((response) => {
 
+  return response.json();
 
-  fetch(`https://picsum.photos/v2/list`).then((response) => {
+}).then((responseJson) => {
 
-    return response.json();
+  for (let i = 0; i < responseJson.length; i++) {
+    console.log(responseJson[i]);
+  }
 
-  }).then((responseJson) => {
+  injectInfo(responseJson);
 
-    //injectInfo(responseJson);
-    console.log(responseJson);
-
-  });
-
-
-
+});
 
 //Step 2 - add photos from picsum api via javascript
 function injectInfo(responseJson) {
@@ -26,22 +24,15 @@ function injectInfo(responseJson) {
   for (var c = 0; c < 2; c++) {
 
     var cell = row.insertCell(c);
-    cell.id = `${responseJson.author}_${c}`;
+    cell.id = `${responseJson.url}_${c}`;
 
   }
 
-  document.querySelector(`#${responseJson.author}_0`).innerHTML = responseJson.download_url;
+  document.querySelector(`#${responseJson.url}_0`).innerHTML = responseJson.url;
+  document.querySelector(`#${responseJson.url}_1`).innerHTML = responseJson.download_url;
   var photo = document.createElement('img');
-  var src = document.querySelector(`#${responseJson.author}_1`);
+  var src = document.querySelector(`#${responseJson.url}_2`);
   photo.src = responseJson.download_url;
   src.appendChild(photo);
 
 }
-
-
-
-
-
-
-
-
