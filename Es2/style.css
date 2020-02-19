@@ -9,19 +9,19 @@ body {
 
 #myTable {
     width: 100%;
-    border: 1px solid black;
+    border: none;
 }
 
 #myTable tr>td>img {
-    width: 150px;
+    width: 450px;
     height: auto;
 }
 
 th {
-    background-color: yellow;
+    background-color: white;
 }
 
 td, th {
-    border: 1px solid black;
+    border: none;
     text-align: center;
 }
